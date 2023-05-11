@@ -6,12 +6,13 @@
             </h4>
         </a>
         <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link text-white">user</a>
-                <a class="nav-link" href="#"> خروج </a>
-  
-                <a class="nav-link" href="#"> ورود </a>
-                <a class="nav-link" href="#"> عضویت </a>
-     
+            <?php if( isLoggedIn() ) : ?>
+                <a class="nav-link text-white"> <?php echo $_SESSION['user_name'] ?> </a>
+                <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout"> خروج </a>
+            <?php else : ?>
+                <a class="nav-link <?php echo ($_GET['url'] == 'users/login') ? 'active' : '' ?> " href="<?php echo URLROOT; ?>/users/login"> ورود </a>
+                <a class="nav-link <?php echo ($_GET['url'] == 'users/register') ? 'active' : '' ?> " href="<?php echo URLROOT; ?>/users/register"> عضویت </a>
+            <?php endif ?>
         </nav>
     </div>
 </nav>
