@@ -11,7 +11,7 @@
             <h4>مقالات</h2>
         </div>
         <div class="col-md-6 text-left">
-            <a href="#" class="btn btn btn-light">
+            <a href="<?php echo URLROOT; ?>/articles/add" class="btn btn btn-light">
                 افزودن مقاله
             </a>
         </div>
