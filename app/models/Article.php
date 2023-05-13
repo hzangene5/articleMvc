@@ -68,6 +68,20 @@ class Article
     }
 
 
+    public function deleteArticle($id)
+    {
+        $this->db->query('DELETE FROM articles WHERE id = :id');
+        // Bind value
+        $this->db->bind(':id', $id);
+
+        // Execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
 }
