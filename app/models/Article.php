@@ -40,4 +40,15 @@ class Article
             return false;
         }
     }
+
+    public function getArticleById($id)
+    {
+        $this->db->query('SELECT * FROM articles WHERE id = :id');
+
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->fetch();
+
+        return $row;
+    }
 }

@@ -2,6 +2,7 @@
 class Articles extends Controller
 {
     private $articleModel;
+    private $userModel;
 
     public function __construct()
     {
@@ -10,6 +11,7 @@ class Articles extends Controller
             redirect('users/login');
         }
         $this->articleModel = $this->model('Article');
+        $this->userModel = $this->model('User');
 
 
     }
@@ -72,6 +74,22 @@ class Articles extends Controller
             $this->view('articles/add', $data);
         }
     }
+
+    public function show($id)
+    {
+        $article = $this->articleModel->getArticleById($id);
+
+        $user = $this->userModel->getUserById($article->user_id);
+
+        $data = [
+            'article' => $article,
+            'user' => $user
+        ];
+
+        $this->view('articles/show', $data);
+    }
+
+
 
 
 }

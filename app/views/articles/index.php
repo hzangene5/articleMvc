@@ -35,7 +35,7 @@
                     <?php echo $article->body ?>
                 </p>
 
-                <a href="#" class="btn btn-dark btn-block">نمایش</a>
+                <a href="<?php echo URLROOT; ?>/articles/show/<?php echo $article->articleId ?>" class="btn btn-dark btn-block">نمایش</a>
 
             </div>
 
