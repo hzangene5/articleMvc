@@ -51,4 +51,23 @@ class Article
 
         return $row;
     }
+    public function updateArticle($data)
+    {
+        $this->db->query('UPDATE articles SET title = :title , body = :body WHERE id = :id');
+        // Bind value
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':body', $data['body']);
+
+        // Execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
 }
